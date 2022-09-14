@@ -46,11 +46,11 @@ open class Socket: Hashable, Equatable {
      }
      */
     
-    public class func setNoSigPipe(_ socket: Int32) {
-        // Prevents crashes when blocking calls are pending and the app is paused ( via Home button ).
-        var no_sig_pipe: Int32 = 1
-        setsockopt(socket, SOL_SOCKET, SO_NOSIGPIPE, &no_sig_pipe, socklen_t(MemoryLayout<Int32>.size))
-    }
+//    public class func setNoSigPipe(_ socket: Int32) {
+//        // Prevents crashes when blocking calls are pending and the app is paused ( via Home button ).
+//        var no_sig_pipe: Int32 = 1
+//        setsockopt(socket, SOL_SOCKET, SO_NOSIGPIPE, &no_sig_pipe, socklen_t(MemoryLayout<Int32>.size))
+//    }
     
     public class func close(_ socket: Int32) {
         _ = Darwin.close(socket)

@@ -33,12 +33,6 @@ open class HttpRouter {
     private func routesForNode(_ node: Node, prefix: String) -> [String] {
         var result = [String]()
         
-        guard
-            node.handler != nil
-        else {
-            return []
-        }
-        
         if !prefix.isEmpty {
             result.append(prefix)
         }
@@ -56,14 +50,8 @@ open class HttpRouter {
         inflate(rootNode, generator: &pathSegmentsGenerator).handler = handler
     }
     
-    public func route(_ method: String?, path: String) -> dispatchHttpReq? {
-        guard
-            let method = method
-        else {
-            return nil
-        }
-
-        let pathSegments = (method + "/" + (path)).split()
+    public func route(_ method: String, path: String) -> dispatchHttpReq? {
+        let pathSegments = ("\(method)/\(path)").split()
         var pathSegmentsGenerator = pathSegments.makeIterator()
         var params = [String: String]()
         
