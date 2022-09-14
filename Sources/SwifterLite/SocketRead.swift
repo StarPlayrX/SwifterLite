@@ -14,15 +14,8 @@ extension Socket {
     ///
     /// - Returns: A single byte
     /// - Throws: SocketError.recvFailed if unable to read from the socket
-    open func read() throws -> UInt8 {
-        var byte: UInt8 = 0
-        
-        let count = Darwin.read(self.socketFileDescriptor as Int32, &byte, 1)
-        
-        guard count > 0 else {
-            throw SocketError.recvFailed(ErrNumString.description())
-        }
-        return byte
+    open func read(byte: inout UInt8) throws {
+        Darwin.read(self.socketFileDescriptor as Int32, &byte, 1)
     }
     
     /// Read up to `length` bytes from this socket
@@ -62,14 +55,15 @@ extension Socket {
     }
     
     public func readLine() throws -> String {
-        var string: String = ""
-        var index: UInt8 = 0
-        
+        var s: String = ""
+        var b: UInt8 = 0
         repeat {
-            index = try self.read()
-            if index > Socket.CR { string.append(Character(UnicodeScalar(index))) }
-        } while index != Socket.NL
+            try self.read(byte: &b)
+            if b > Socket.CR {
+                s.append(Character(UnicodeScalar(b)))
+            }
+        } while b != Socket.NL
         
-        return string
+        return s
     }
 }

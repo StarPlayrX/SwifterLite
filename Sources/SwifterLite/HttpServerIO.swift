@@ -139,6 +139,7 @@ open class HttpServerIO {
             responseHeader.append("\(name): \(value)\r\n")
         }
         responseHeader.append("\r\n")
+        
         try socket.writeUTF8(responseHeader)
         guard let writeClosure = content.write else { return keepAlive }
         try writeClosure(InnerWriteContext(socket: socket))

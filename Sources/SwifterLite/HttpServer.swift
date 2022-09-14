@@ -19,10 +19,9 @@ open class HttpServer: HttpServerIO {
     public var post: MethodRoute
     public var get : MethodRoute
 
-    public subscript(path: String) -> httpReq? {
-        get { return nil }
-        set { router.register(nil, path: path, handler: newValue) }
-    }
+//    public subscript(path: String) -> httpReq? {
+//        get { return nil }
+//    }
     
     public var routes: [String] {
         router.routes()
