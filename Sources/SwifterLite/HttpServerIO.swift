@@ -59,7 +59,7 @@ open class HttpServerIO {
     
     public func start(_ port: in_port_t, priority: DispatchQoS.QoSClass = .userInteractive) throws {
         try autoreleasepool {
-            self.socket = try Socket.tcpSocketForListen(port, SOMAXCONN, nil)
+            self.socket = try Socket.tcpSocketForListen(port, SOMAXCONN)
             self.state = .running
             DispatchQueue.global(qos: priority).async { [self] in
                 while let socket = try? socket.acceptClientSocket() {
@@ -82,7 +82,7 @@ open class HttpServerIO {
     }
     
     public func stop() {
-        try autoreleasepool {
+        autoreleasepool {
             self.state = .stopping
 
             for socket in self.sockets {
