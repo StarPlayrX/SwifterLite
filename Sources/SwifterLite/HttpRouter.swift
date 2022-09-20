@@ -27,12 +27,12 @@ open class HttpRouter {
     public func routes() -> [String] {
         var routes = [String]()
         for node in rootNode.nodes {
-            routes.append(contentsOf: routesForNode(node.value, prefix: ""))
+            routes.append(contentsOf: routesForNode(node.value))
         }
         return routes
     }
     
-    private func routesForNode(_ node: Node, prefix: String) -> [String] {
+    private func routesForNode(_ node: Node, prefix: String = "") -> [String] {
         var result = [String]()
         
         if !prefix.isEmpty {
