@@ -50,7 +50,8 @@ public enum HttpResponse {
                     headers.updateValue(value, forKey: key)
                 }
             }
-        default:break
+        case .notFound(_):
+            ()
         }
         return headers
     }

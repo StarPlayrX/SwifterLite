@@ -29,11 +29,11 @@ public enum HttpResponseBody {
                     try $0.write(byts: bytes)
                 })
             case .json(let object, _):
-                guard
-                    JSONSerialization.isValidJSONObject(object)
-                else {
-                    throw SerializationError.invalidObject
-                }
+//                guard
+//                    JSONSerialization.isValidJSONObject(object)
+//                else {
+//                    throw SerializationError.invalidObject
+//                }
                 let data = try JSONSerialization.data(withJSONObject: object)
                 return (data.count, {
                     try $0.write(data: data)
