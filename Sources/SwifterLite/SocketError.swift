@@ -26,6 +26,6 @@ public enum SocketError: Error {
 
 public class ErrNumString {
     public class func description() -> String {
-        "\(String(describing: strerror(errno)))"
+        "\(errno)"
     }
 }
