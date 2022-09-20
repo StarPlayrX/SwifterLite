@@ -17,13 +17,13 @@ extension Socket {
             var len: socklen_t = 0
             let clientSocket = accept(self.socketFileDescriptor, &addr, &len)
             
-            if clientSocket == -1 {
+            if clientSocket != -1 {
+                Socket.setNoSigPipe(clientSocket)
+                return Socket(socketFileDescriptor: clientSocket)
+            } else {
                 throw SocketError.acceptFailed(ErrNumString.description())
             }
-            
-            Socket.setNoSigPipe(clientSocket)
-            
-            return Socket(socketFileDescriptor: clientSocket)
+        
         }
     }
 }
