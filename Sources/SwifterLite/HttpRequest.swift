@@ -30,7 +30,7 @@ public class HttpRequest {
         method: String = "",
         headers: [String : String] = [:],
         body: [UInt8] = [],
-        address: String? = nil,
+        address: String? = "127.0.0.1",
         params: [String : String] = [:]
     ) {
         self.path = path

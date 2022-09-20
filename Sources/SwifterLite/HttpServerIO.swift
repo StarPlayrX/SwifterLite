@@ -102,7 +102,6 @@ open class HttpServerIO {
     private func handleConnection(_ socket: Socket) {
         let parser = HttpParser()
         while let request = try? parser.readHttpRequest(socket) {
-            request.address = "127.0.0.1"
             
             let (params, handler) = self.dispatch(request)
             request.params = params
