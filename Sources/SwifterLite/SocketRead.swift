@@ -58,7 +58,8 @@ extension Socket {
             
             if
                 let baseAddress = buffer.baseAddress,
-                case let bytesRead = Darwin.read(self.socketFileDescriptor as Int32, baseAddress + offset, readLength) {
+                case let bytesRead = Darwin.read(self.socketFileDescriptor as Int32, baseAddress + offset, readLength),
+                bytesRead > 0 {
                 offset += bytesRead
             } else {
                 throw SocketError.recvFailed(ErrNumString.description())
