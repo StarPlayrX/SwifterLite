@@ -25,13 +25,16 @@ extension Socket {
 
     private func writeBuffer(_ pointer: UnsafeRawPointer, length: Int) throws {
         var sent = 0
+        
         while sent < length {
             let result = write(self.socketFileDescriptor, pointer + sent, Int(length - sent))
 
-            if result <= 0 {
+            if result > 0 {
+                sent += result
+            } else {
                 throw SocketError.writeFailed(ErrNumString.description())
             }
-            sent += result
         }
+        
     }
 }
