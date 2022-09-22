@@ -4,6 +4,9 @@
 //
 //  Copyright (c) 2014-2016 Damian Kołakowski. All rights reserved.
 //
+//  SwifterLite
+//  Copyright (c) 2022 Todd Bruss. All rights reserved.
+//
 
 import Foundation
 
@@ -13,7 +16,7 @@ extension Socket {
     ///   - listenAddress: String representation of the address the socket should accept
     ///       connections from. It should be in IPv4 format if forceIPv4 == true,
     ///       otherwise - in IPv6.
-    public class func tcpSocketForListen(_ port: in_port_t,_ maxPendingConnection: Int32 = SOMAXCONN, _ listenAddress: String? = nil) throws -> Socket {
+    public class func tcpSocketForListen(_ port: in_port_t,_ maxPendingConnection: Int32 = SOMAXCONN) throws -> Socket {
         
         let socketFileDescriptor = socket(AF_INET, SOCK_STREAM, 0)
         
@@ -27,7 +30,7 @@ extension Socket {
             Socket.close(socketFileDescriptor)
             throw SocketError.socketSettingReUseAddrFailed(details)
         }
-        //Socket.setNoSigPipe(socketFileDescriptor)
+        Socket.setNoSigPipe(socketFileDescriptor)
         
         var bindResult: Int32 = -1
         

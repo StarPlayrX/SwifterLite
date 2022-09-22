@@ -4,6 +4,9 @@
 //
 //  Copyright (c) 2014-2016 Damian Kołakowski. All rights reserved.
 //
+//  SwifterLite
+//  Copyright (c) 2022 Todd Bruss. All rights reserved.
+//
 
 import Foundation
 
@@ -12,16 +15,12 @@ open class HttpServer: HttpServerIO {
         self.post = MethodRoute(method: "POST", router: router)
         self.get  = MethodRoute(method: "GET",  router: router)
     }
-    public static let version = "1.5.1"
+    public static let version = "horse"
     
     private let router = HttpRouter()
     
     public var post: MethodRoute
     public var get : MethodRoute
-
-//    public subscript(path: String) -> httpReq? {
-//        get { return nil }
-//    }
     
     public var routes: [String] {
         router.routes()

@@ -4,6 +4,9 @@
 //
 //  Copyright (c) 2014-2016 Damian Kołakowski. All rights reserved.
 //
+//  SwifterLite
+//  Copyright (c) 2022 Todd Bruss. All rights reserved.
+//
 
 import Foundation
 
@@ -23,6 +26,6 @@ public enum SocketError: Error {
 
 public class ErrNumString {
     public class func description() -> String {
-        "\(String(describing: strerror(errno)))"
+        "\(errno)"
     }
 }

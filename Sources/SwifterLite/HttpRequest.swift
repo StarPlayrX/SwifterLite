@@ -4,6 +4,9 @@
 //
 //  Copyright (c) 2014-2016 Damian Kołakowski. All rights reserved.
 //
+//  SwifterLite
+//  Copyright (c) 2022 Todd Bruss. All rights reserved.
+//
 
 import Foundation
 
@@ -27,7 +30,7 @@ public class HttpRequest {
         method: String = "",
         headers: [String : String] = [:],
         body: [UInt8] = [],
-        address: String? = nil,
+        address: String? = "127.0.0.1",
         params: [String : String] = [:]
     ) {
         self.path = path
