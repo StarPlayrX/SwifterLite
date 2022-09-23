@@ -2,13 +2,13 @@
 ![Swift](https://img.shields.io/badge/Swift-5.6-4BC51D.svg?style=flat)
 ![Protocols](https://img.shields.io/badge/Protocols-HTTP%201.1-4BC51D.svg?style=flat)
 
-### What is Swifter-Lite?
+### What is SwifterLite?
 
-Unofficial fork of Swifter written in [Swift](https://developer.apple.com/swift/) programming language, designed to be an embedded REST API server for iOS macOS and tvOS. This fork focuses on speed and reliability with the ability to stream audio and video seamlessly on or to any Apple device. Swifter-Lite can also become a REST api middleware layer and use abstraction to any proprietary api that might not be supported natively, directly or is easier to keep that layer separate from your main app.
+Unofficial fork of Swifter written in [Swift](https://developer.apple.com/swift/) programming language, designed to be an embedded REST API server for iOS macOS and tvOS. This fork focuses on speed and reliability with the ability to stream audio and video seamlessly on or to any Apple device. SwifterLite can also become a REST api middleware layer and use abstraction to any proprietary api that might not be supported natively, directly or is easier to keep that layer separate from your main app.
 
 Supports data, json, text, bytes, audio and video streaming over HLS, over HTTP 1.1 protocol via http://localhost, ipv4 tcp ip
 
-Swifter-Lite is used in StarPlayrX and future IPTVee works by Todd Bruss. This library uses a subset of features available in Swifter. Please do not attempt to merge it into http/Swifter as there are many changes and some pieces will not be available. Swifter-Lite is approximately 50% the size of Swifter.
+SwifterLite is used in StarPlayrX and future IPTVee works by Todd Bruss. This library uses a subset of features available in Swifter. Please do not attempt to merge it into http/Swifter as there are many changes and some pieces will not be available. SwifterLite is approximately 50% the size of Swifter.
 
 ### Branches
 `mustang`
@@ -28,12 +28,12 @@ let package = Package(
             targets: ["YourServerName"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/StarPlayrX/Swifter-Lite", branch: "mustang")
+        .package(url: "https://github.com/StarPlayrX/SwifterLite", branch: "mustang")
     ],
     targets: [
         .target(
             name: "YourServerName",
-            dependencies: [.product(name: "SwifterLite", package: "Swifter-Lite")]
+            dependencies: [.product(name: "SwifterLite", package: "SwifterLite")]
         ),
     ]
 )

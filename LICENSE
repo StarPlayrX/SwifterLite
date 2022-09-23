@@ -29,7 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 SwifterLite
 Copyright (c) 2022 Todd Bruss. All rights reserved.
-https://github.com/StarPlayrX/Swifter-Lite
+https://github.com/StarPlayrX/SwifterLite
 
 This software package is a fork of Swifter. 
 It is designed to be a lean REST API embedded web server for macOS, iOS and tvOS. 
