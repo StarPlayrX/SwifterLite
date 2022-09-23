@@ -11,7 +11,7 @@ Supports data, json, text, bytes, audio and video streaming over HLS, over HTTP 
 Swifter-Lite is used in StarPlayrX and future IPTVee works by Todd Bruss. This library uses a subset of features available in Swifter. Please do not attempt to merge it into http/Swifter as there are many changes and some pieces will not be available. Swifter-Lite is approximately 50% the size of Swifter.
 
 ### Branches
-`horse`
+`mustang`
 
 #### To Do REST API examples to be expanded
 
@@ -28,7 +28,7 @@ let package = Package(
             targets: ["YourServerName"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/StarPlayrX/Swifter-Lite", branch: "horse")
+        .package(url: "https://github.com/StarPlayrX/Swifter-Lite", branch: "mustang")
     ],
     targets: [
         .target(
