@@ -15,25 +15,6 @@ Swifter-Lite is used in StarPlayrX and future IPTVee works by Todd Bruss. This l
 
 #### To Do REST API examples to be expanded
 
-### How to start server with 1 route and select its port
-```swift
-let server = HttpServer()
-server.get["/api/v3/ping"] = { request in
-    return HttpResponse.ok(.text("pong"))
-}
-let port = 8080
-try? server.start(port)
-```
-
-### Data Route
-```swift
-func dataRoute(_ data: Data) -> httpReq {{ request in
-    return HttpResponse.ok(.data(data, contentType: "application/octet-stream"))
-}}
-
-let data = Data("commanderData".utf8)
-server.get["/commander/data"] = dataRoute(data: data)
-```
 
 ### Swift Package Manager
 ```swift
@@ -56,4 +37,29 @@ let package = Package(
         ),
     ]
 )
+```
+
+### import SwifterLite
+```swift
+import SwifterLite
+```
+
+### How to start server with 1 route and select its port
+```swift
+let server = HttpServer()
+server.get["/api/v3/ping"] = { request in
+    return HttpResponse.ok(.text("pong"))
+}
+let port = 8080
+try? server.start(port)
+```
+
+### Data Route
+```swift
+func dataRoute(_ data: Data) -> httpReq {{ request in
+    return HttpResponse.ok(.data(data, contentType: "application/octet-stream"))
+}}
+
+let data = Data("commanderData".utf8)
+server.get["/commander/data"] = dataRoute(data: data)
 ```
