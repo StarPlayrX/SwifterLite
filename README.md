@@ -12,7 +12,7 @@ Supports data, json, text, bytes, audio and video streaming over HLS, over HTTP 
 SwifterLite is used in StarPlayrX and future IPTVee works by Todd Bruss
 
 ### Branches
-`1.5.1`
+`horse`
 
 #### To Do REST API examples to be expanded
 
