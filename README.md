@@ -4,7 +4,7 @@
 
 ### What is Swifter-Lite?
 
-Unofficial fork of Swifter written in [Swift](https://developer.apple.com/swift/) programming language, designed to be an embedded REST API server for iOS macOS and tvOS. This fork focuses on speed and reliability with the ability to stream audio and video seamlessly on or to any Apple device. SwifterLite can also become a REST api middleware layer and use abstraction to any proprietary api that might not be supported natively, directly or is easier to keep that layer separate from your main app.
+Unofficial fork of Swifter written in [Swift](https://developer.apple.com/swift/) programming language, designed to be an embedded REST API server for iOS macOS and tvOS. This fork focuses on speed and reliability with the ability to stream audio and video seamlessly on or to any Apple device. Swifter-Lite can also become a REST api middleware layer and use abstraction to any proprietary api that might not be supported natively, directly or is easier to keep that layer separate from your main app.
 
 Supports data, json, text, bytes, audio and video streaming over HLS, over HTTP 1.1 protocol via http://localhost, ipv4 tcp ip
 
