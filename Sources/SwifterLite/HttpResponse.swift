@@ -13,13 +13,11 @@ import Foundation
 public enum HttpResponse {
     case ok(HttpResponseBody, [String: String] = [:])
     case notFound(HttpResponseBody? = nil)
-    case raw(Int, String, [String: String]?, ((HttpResponseBodyWriter) throws -> Void)?)
     
     public var statusCode: Int {
         switch self {
         case .ok                      : return 200
         case .notFound                : return 404
-        case .raw(let code, _, _, _)  : return code
         }
     }
     
@@ -27,7 +25,6 @@ public enum HttpResponse {
         switch self {
         case .ok                       : return "OK"
         case .notFound                 : return "Not Found"
-        case .raw(_, let phrase, _, _) : return phrase
         }
     }
     
@@ -44,12 +41,6 @@ public enum HttpResponse {
             case .data(_, let contentType): headers["Content-Type"] = contentType
             case .byts(_, let contentType): headers["Content-Type"] = contentType
             }
-        case .raw(_, _, let rawHeaders, _):
-            if let rawHeaders = rawHeaders {
-                for (key, value) in rawHeaders {
-                    headers.updateValue(value, forKey: key)
-                }
-            }
         case .notFound(_):
             ()
         }
@@ -60,7 +51,6 @@ public enum HttpResponse {
         switch self {
         case .ok(let body, _)          : return body.content()
         case .notFound(let body)       : return body?.content() ?? (-1, nil)
-        case .raw(_, _, _, let writer) : return (-1, writer)
         }
     }
 }

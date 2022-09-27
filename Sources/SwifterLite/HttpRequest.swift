@@ -12,6 +12,7 @@ import Foundation
 
 public typealias httpReq = ((HttpRequest) -> HttpResponse)
 public typealias dispatchHttpReq = ([String: String], (HttpRequest) -> HttpResponse)
+public typealias httpWriter = (Int, ((HttpResponseBodyWriter) throws -> Void)?)
 
 public class HttpRequest {
     

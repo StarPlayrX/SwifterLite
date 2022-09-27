@@ -38,3 +38,13 @@ extension Socket {
         
     }
 }
+
+//                let bufferSize = 1024
+//                let stream = InputStream(data: audio)
+//                var buf = [UInt8](repeating: 0, count: bufferSize)
+//
+//                stream.open()
+//                while case let amount = stream.read(&buf, maxLength: bufferSize), amount > 0 {
+//                    try writer.write(byts: [UInt8](buf[..<amount]))
+//                }
+//                stream.close()
