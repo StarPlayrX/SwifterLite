@@ -17,7 +17,7 @@ public enum HttpResponseBody {
     case data(Data,    contentType: String? = nil)
     case byts([UInt8], contentType: String? = nil)
 
-    func content() -> (Int, ((HttpResponseBodyWriter) throws -> Void)?) {
+    func content() -> httpWriter {
         do {
             switch self {
             case .data(let data, _):
