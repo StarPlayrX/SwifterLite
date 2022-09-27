@@ -65,3 +65,5 @@ func dataRoute(_ data: Data) -> httpReq {{ request in
 let data = Data("commanderData".utf8)
 server.get["/commander/data"] = dataRoute(data: data)
 ```
+
+For more examples please see StarPlayrRadioKit which uses SwifterLite
