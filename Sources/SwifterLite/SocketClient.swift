@@ -23,7 +23,6 @@ extension Socket {
             } else {
                 throw SocketError.acceptFailed(ErrNumString.description())
             }
-        
         }
     }
 }

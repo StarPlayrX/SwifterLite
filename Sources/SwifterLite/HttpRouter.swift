@@ -118,7 +118,6 @@ open class HttpRouter {
         } else if node.isEndOfRoute && index == count {
             matchedNodes.append(node)
         }
-        
     }
 }
 
