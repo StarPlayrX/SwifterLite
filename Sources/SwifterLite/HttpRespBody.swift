@@ -40,7 +40,7 @@ public enum HttpResponseBody {
                 })
             }
         } catch {
-            let data = [UInt8]("Serialization error: \(error)".utf8)
+            let data = [UInt8]("Http error: \(error)".utf8)
             return (data.count, {
                 try $0.write(byts: data)
             })
