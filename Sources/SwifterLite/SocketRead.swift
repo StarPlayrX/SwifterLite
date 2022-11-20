@@ -14,7 +14,7 @@ extension Socket {
  
     /// - Returns: A single byte
     /// - Throws: SocketError.recvFailed if unable to read from the socket
-    open func read() throws -> UInt8 {
+    public func read() throws -> UInt8 {
         var byte: UInt8 = 0
         
         if Darwin.read(self.socketFileDescriptor as Int32, &byte, 1) > 0 {
@@ -39,7 +39,7 @@ extension Socket {
     /// - Parameter length: The maximum bytes to read
     /// - Returns: A buffer containing the bytes read
     /// - Throws: SocketError.recvFailed if unable to read bytes from the socket
-    open func read(length: Int) throws -> [UInt8] {
+    public func read(length: Int) throws -> [UInt8] {
          try [UInt8](unsafeUninitializedCapacity: length) { buffer, bytesRead in
             bytesRead = try read(into: &buffer, length: length)
         }
